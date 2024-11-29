@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить товар</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Добавить товар</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ item_form.as_p }}
+            <label for="shelf">Стеллажи по приоритетности:</label>
+            <ul>
+                {% for shelf in shelves %}
+                    <li>{{ shelf.name }} (Текущая вместимость: {{ shelf.capacity }})</li>
+                {% endfor %}
+            </ul>
+            <button type="submit">Добавить товар</button>
+        </form>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <a href="{% url 'home' %}">На главную страницу</a>
+    </div>
+</body>
+</html>

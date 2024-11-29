@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Результаты поиска</h1>
+        <form method="get" action="{% url 'search_items' %}">
+            <input type="text" name="q" placeholder="Введите название товара" required>
+            <button type="submit">Поиск</button>
+        </form>
+        <ul>
+            {% if items %}
+                {% for item in items %}
+                    <li>{{ item.name }}: {{ item.quantity }}</li>
+                {% endfor %}
+            {% else %}
+                <li>Товары не найдены.</li>
+            {% endif %}
+        </ul>
+        <div class="centered">
+            <a href="{% url 'home' %}">На главную страницу</a>
+        </div>
+    </div>
+</body>
+</html>

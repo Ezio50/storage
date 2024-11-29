@@ -1,0 +1,64 @@
+[
+    {
+        "model": "inventory.category",
+        "pk": 1,
+        "fields": {
+            "name": "Оружие",
+            "description": "Все виды оружия"
+        }
+    },
+    {
+        "model": "inventory.category",
+        "pk": 2,
+        "fields": {
+            "name": "Гарнитуры",
+            "description": "Различные виды гарнитуры"
+        }
+    },
+    {
+        "model": "inventory.shelf",
+        "pk": 1,
+        "fields": {
+            "name": "Оружейная",
+            "description": "Стеллаж для оружия",
+            "capacity": 100,
+            "max_capacity": 200,
+            "size_limit": "medium"
+        }
+    },
+    {
+        "model": "inventory.shelf",
+        "pk": 2,
+        "fields": {
+            "name": "Гарнитурная",
+            "description": "Стеллаж для гарнитуры",
+            "capacity": 50,
+            "max_capacity": 150,
+            "size_limit": "large"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": 1,
+        "fields": {
+            "name": "Гарнитура капитана",
+            "description": "Гарнитура капитана",
+            "quantity": 10,
+            "size": "small",
+            "category": 1, 
+            "shelf": 1 
+        }
+    },
+    {
+        "model": "inventory.item",
+        "pk": 2,
+        "fields": {
+            "name": "Сабля капитана",
+            "description": "Сабля капитана",
+            "quantity": 20,
+            "size": "medium",
+            "category": 2,
+            "shelf": 2  
+        }
+    }
+]

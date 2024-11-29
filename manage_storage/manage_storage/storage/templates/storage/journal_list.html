@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Журнал</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата и время</th>
+                    <th>Название товара</th>
+                    <th>Количество товара</th>
+                    <th>Вид операции</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry.timestamp }}</td>
+                        <td>{{ entry.item_name }}</td>
+                        <td>{{ entry.quantity }}</td>
+                        <td>{{ entry.operation_type }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="centered">
+            <a href="{% url 'home' %}">На главную страницу</a>
+        </div>
+    </div>
+</body>
+</html>
