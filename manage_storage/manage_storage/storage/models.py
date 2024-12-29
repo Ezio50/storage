@@ -72,7 +72,7 @@ class JournalEntry(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
     item_name = models.CharField(max_length=255, null=True, blank=True)
     quantity = models.IntegerField(null=True, blank=True)
-    operation_type = models.CharField(max_length=10, choices=[('приход', 'приход'), ('уход', 'уход')], default='приход') 
+    operation_type = models.CharField(max_length=10, choices=[('пополнено', 'пополнено'), ('изъято', 'изъято')], default='пополнено') 
     data = models.TextField()
 
     def __str__(self):
